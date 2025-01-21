@@ -25,10 +25,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Route::bind('post', function ($value) {
-            return Post::where('slug', $value)->firstOrFail();
-        });
-
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
@@ -40,6 +36,15 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+
+            Route::prefix('admin')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/admin.php'));
+
+            Route::prefix('manager')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/manager.php'));
         });
+
     }
 }

@@ -26,7 +26,7 @@
 
         <div class="mt-16">
             <p class="text-xxl font-bold">Oppss Error ya! Kamu mengaskses halaman yang tidak ada!</p>
-            <a href="{{ route('posts.show', $post->id) }}">View Post</a>
+{{--            <a href="{{ route('posts.show', $post->id) }}">View Post</a>--}}
         </div>
 
         <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
@@ -35,7 +35,7 @@
             </div>
 
             <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
-                Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+{{--                Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})--}}
             </div>
         </div>
     </div>

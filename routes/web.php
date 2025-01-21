@@ -1,8 +1,4 @@
 <?php
-
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProductController;
-use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,25 +13,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    dd('Welcome to simple user router file.');
 });
 
-Route::get('/posts/{post:slug}', function (Post $post) {
-    return $post;
-});
-
-Route::get('/posts/{post}', [PostController::class, 'show'])
-    ->name('posts.name');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/posts', [PostController::class, 'index']);
-});
-
-// Menampilkan daftar postingan berdasarkan kategori
-Route::get('/categories/{category}/posts',
-    [CategoryController::class, 'posts']
-);
-
-Route::fallback(function () {
-    return view('errors');
-});
+//Route::fallback(function () {
+//    return view('errors');
+//});
