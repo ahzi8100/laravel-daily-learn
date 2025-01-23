@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\CustomValidationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     dd('Welcome to simple user router file.');
 });
+
+Route::get('/custom-validation', [CustomValidationController::class, 'create']);
+Route::post('/custom-validation', [CustomValidationController::class, 'store'])->name('custom.validation.post');
 
 //Route::fallback(function () {
 //    return view('errors');
